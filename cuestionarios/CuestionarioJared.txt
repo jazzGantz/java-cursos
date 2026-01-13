@@ -1,0 +1,1173 @@
+¿Que es String.format();
+Es un formato de cadena aplicada
+
+¿Que es charAt()?;
+ es un metodo de clase String que permite obtener un caracter de una posicion especifica dentre de un 
+texto
+
+¿Cual es la diferencia entre length y lenght() ?;
+length: se usa para obtener la longitud de un arreglo
+lenght: se usa para obtener lalongitud de textos
+
+¿Que es un metodo join()?
+En Java, el método join() es una herramienta de sincronización de hilos que pertenece a la clase Thread.
+Sirve para que un hilo espere a que otro termine su ejecución antes de continuar.
+📌 Funcionamiento básico
+Cuando un hilo (Thread) llama a otroHilo.join(), el hilo actual se bloquea y cede el control de CPU hasta que otroHilo finaliza.
+
+Esto es útil cuando:
+Necesitas que una tarea termine antes de iniciar otra.
+Quieres asegurar un orden específico de ejecución entre hilos.
+Ejemplo:
+public class EjemploJoin {
+    public static void main(String[] args) {
+        Thread hilo1 = new Thread(() -> {
+            try {
+                System.out.println("Hilo 1: trabajando...");
+                Thread.sleep(2000); // Simula trabajo
+                System.out.println("Hilo 1: terminado.");
+            } catch (InterruptedException e) {
+                System.out.println("Hilo 1 interrumpido.");
+            }
+        });
+
+        Thread hilo2 = new Thread(() -> {
+            try {
+                System.out.println("Hilo 2: esperando a Hilo 1...");
+                hilo1.join(); // Espera a que hilo1 termine
+                System.out.println("Hilo 2: ahora puedo continuar.");
+            } catch (InterruptedException e) {
+                System.out.println("Hilo 2 interrumpido.");
+            }
+        });
+
+        hilo1.start();
+        hilo2.start();
+    }
+}
+
+Inicia el hilo1 y le indica al hilo que inicie al finalizar el hilo 2;
+
+
+¿Que es el collection framework ?
+  es un conjunto de interfaces, clases e implementaciones en Java diseñado para
+ almacenar, manipular y procesar grupos de objetos de forma eficiente y estandarizada.
+
+
+¿Que es list? 
+ Es una coleccion ordenada de elementos que permite acceder, 
+ modifica, insercion, eliminacion y busqueda de metodos por medio de indice
+
+
+
+cual es la diferencia entre arrayList y linkedList?
+Arraylist: 
+arrray list es mas rapido para obtener informacion.
+linkelist es mas lento para obtener la informacion. 
+
+
+¿Que es set?
+es una estructura de datos no ordenada que no permite datos duplicados y puede tener
+datos nullos.
+Usa Set cuando:
+Necesites evitar duplicados
+Quieras saber si un elemento ya existe
+No te importe el índice (Set no tiene get(i))
+
+
+¿Que es HashSet?
+En Java, HashSet es una implementación de la interfaz Set que almacena elementos únicos usando una tabla hash.
+
+
+¿Que es LinkedHashSet?
+En Java, LinkedHashSet es una implementación de la interfaz Set que combina las ventajas de HashSet y LinkedList.
+👉 En pocas palabras:
+LinkedHashSet guarda elementos únicos y mantiene el orden en que fueron insertados.
+
+
+¿Que es TreeSET?
+En Java, TreeSet es una implementación de la interfaz Set que almacena elementos únicos y siempre ordenados.
+
+👉 En pocas palabras:
+TreeSet guarda datos sin duplicados y los mantiene ordenados automáticamente.
+1. Características principales de TreeSet
+
+❌ No permite duplicados
+
+✔️ Mantiene los elementos ordenados
+
+Orden natural (Comparable)
+
+O un orden personalizado (Comparator)
+
+🐢 Más lento que HashSet y LinkedHashSet
+
+❌ No permite null
+
+Implementado con un árbol rojo-negro
+
+almacena elementos únicos y siempre ordenados.
+
+
+
+¿Que es una clase anonima?
+En Java, una clase anónima es una clase sin nombre que se define y se instancia en el mismo momento, normalmente para sobrescribir 
+métodos de una clase o interfaz de forma rápida.
+Características importantes:
+
+❌ No tiene nombre
+
+❌ No puede tener constructores
+
+✔️ Puede acceder a variables final o efectivamente finales
+
+✔️ Se crea y usa una sola vez
+
+❌ No se puede reutilizar
+
+
+¿Que es la composicion?
+Una clase usa otra clase como atributo.
+ En Java, la composición es un principio de diseño orientado a objetos en el que una clase contiene objetos de otra clase para reutilizar
+ funcionalidad, en lugar de heredarla.
+👉 Se conoce como la relación “tiene-un” (has-a).
+
+composicion es que una clase use otra como atributo:
+class Motor {
+    void encender() {
+        System.out.println("Motor encendido");
+    }
+}
+
+class Auto {
+    private Motor motor;  // composición
+
+    public Auto() {
+        this.motor = new Motor();
+    }
+
+    void arrancar() {
+        motor.encender();
+    }
+}
+
+| Composición                    | Herencia           |
+| ------------------------------ | ------------------ |
+| **Tiene-un**                   | **Es-un**          |
+| Más flexible                   | Más rígida         |
+| Bajo acoplamiento              | Alto acoplamiento  |
+| Permite cambiar comportamiento | Difícil de cambiar |
+| Recomendada                    | Usar con cuidado   |
+
+
+¿Que es la agregacion?
+El objeto puede existir independientemente.
+
+ class Equipo {
+    private Jugador jugador;
+
+    public Equipo(Jugador jugador) {
+        this.jugador = jugador;
+    }
+}
+
+ 
+¿Cuándo usar composición?
+
+Usa composición cuando:
+Quieras reutilizar código
+No exista una relación clara “es-un”
+Necesites flexibilidad
+Diseñes sistemas grandes
+
+
+
+¿Que es la clonacion de objetos?
+la clonacion de objetos en java es el proceso de crear copia exacta de un objeto existente.
+lo que permite tenerdos instancias identicas en memoria al mismo tiempo.
+este mecanismo es util cuando se necesita manipular datos sin modificar el objeto general.
+
+¿Que es el metodo clone() ?
+
+En Java, el método clone() sirve para crear una copia de un objeto existente.
+👉 Es una forma de duplicar objetos sin crear uno nuevo “desde cero”.
+Requisitos para usar clone()
+
+Para que funcione, la clase debe:
+Implementar Cloneable
+Sobrescribir el método clone()
+Llamar a super.clone()
+//////Ejemplo básico (clonado superficial)
+class Persona implements Cloneable {
+    String nombre;
+    int edad;
+
+    @Override
+    public Persona clone() {
+        try {
+            return (Persona) super.clone();
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError();
+        }
+    }
+}
+Persona p1 = new Persona();
+Persona p2 = p1.clone();
+
+
+
+
+¿Que es un String?
+Es una cadena de caracteres letras o numeros 
+Un String es inmutable, lo que significa que no puede cambiar una vez creado.
+Métodos comunes de String
+length()
+toUpperCase()
+toLowerCase()
+substring()
+equals()
+contains()
+split()
+
+
+¿Cual es la diferencia entre String StringBuilder y StringBUffer?
+
+| Tipo          | Mutable | Thread-safe | Uso               |
+| ------------- | ------- | ----------- | ----------------- |
+| String        | ❌       | ✔️          | Texto fijo        |
+| StringBuilder | ✔️      | ❌           | Texto modificable |
+| StringBuffer  | ✔️      | ✔️          | Multihilo         |
+
+En Java, String, StringBuilder y StringBuffer sirven para manejar texto, pero no son iguales.
+La diferencia principal está en mutabilidad, rendimiento y seguridad en hilos (threads).
+La principal diferencia es que String en inmutable y StringBuilder y StringBuffer son mutables y StringBuffer
+es multihilo.
+
+¿Porque los String son inmutables en java?
+
+para evitar modificaciones  maliciosas, permite ahorro de memoria, codigo mas predecible y uso eficiente en los hash.
+
+¿Que es String Pool?
+
+el String pool o (String constant pool) es una zona especial de memoria en java donde se almacenan Strings literales para reutilizarlos y ahorrar memoria.
+ejemplo:
+String a = "Hola";
+String b = "Hola";
+a y b apuntan al MISMO objeto en el String Pool.
+String Pool
+ └── "Hola"  ← a, b
+
+
+¿Cual es la diferencia entre Equals y == ?
+
+(Equals) compara el mismo contenido de la variable, y (==) compara la misma referencia de memoria que comparten
+ambas variables.
+ 
+String a = "Hola";
+String b = "Hola";
+String c = new String("Hola");
+
+System.out.println(a == b); // true (misma referencia)
+System.out.println(a == c); // false (distinta referencia)
+System.out.println(a.equals(c)); // true (mismo contenido)
+
+
+¿Que es un arreglo?
+
+un arreglo es una estructura de datos que sirve para almacenar varios valores del mismo tipo
+en una sola variable usando indices para acceder acada elemento.
+
+Es una colección de:
+
+Tamaño fijo
+Tipo de dato único
+Acceso por índice (empieza en 0)
+
+int[] numeros = {10, 20, 30, 40};
+
+Índice →  0   1   2   3
+Valor  → 10  20  30  40
+
+
+¿Que son los arreglos multidimencionales?
+En Java, los arreglos multidimensionales son estructuras de datos que permiten almacenar información en más de una dimensión,
+como si fueran tablas, matrices o incluso cubos.
+En lugar de tener una sola fila de datos (arreglo unidimensional), puedes tener varias filas y columnas, o más dimensiones.
+
+1. Concepto
+Un arreglo unidimensional es como una lista:
+int[] numeros = {1, 2, 3};
+Un arreglo bidimensional es como una tabla o matriz:
+int[][] matriz = new int[3][4];
+Aquí hay 3 filas y 4 columnas.
+También pueden existir arreglos de 3 o más dimensiones, aunque son menos comunes.
+2. Declaración y creación
+En Java, un arreglo multidimensional se declara así:
+
+tipo[][] nombre = new tipo[filas][columnas];
+
+Ejemplo:
+int[][] matriz = new int[2][3]; // 2 filas, 3 columnas
+
+También se puede inicializar directamente:
+int[][] matriz = {
+    {1, 2, 3},
+    {4, 5, 6}
+};
+
+
+3. Acceso a elementos
+Se accede usando índices:
+matriz[0][1] = 10; // Fila 0, Columna 1
+System.out.println(matriz[1][2]); // Imprime el valor en fila 1, columna 2
+
+ Ejemplo:
+public class MatrizEjemplo {
+    public static void main(String[] args) {
+        // Crear e inicializar una matriz 3x3
+        int[][] matriz = {
+            {1, 2, 3},
+            {4, 5, 6},
+            {7, 8, 9}
+        };
+
+        // Recorrer la matriz
+        for (int fila = 0; fila < matriz.length; fila++) {
+            for (int col = 0; col < matriz[fila].length; col++) {
+                System.out.print(matriz[fila][col] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+Salida:
+1 2 3
+4 5 6
+7 8 9
+
+Un arreglo multidimensional en Java es un arreglo de arreglos, útil para representar datos en forma de tabla, matriz o estructuras más complejas como tableros de juegos o imágenes.
+
+
+
+
+¿Que es la excepcion ArrayIndexOutOFBoundExcepcion?
+La ArrayIndexOutOfBoundsException es una excepción en Java que ocurre cuando intentas acceder a
+ una posición de un arreglo que no existe.
+
+
+¿Que es la clase arrays?
+La clase Arrays en Java es una clase utilitaria del paquete java.util que proporciona métodos estáticos
+para trabajar con arreglos de forma fácil y eficiente.
+
+⚠️ No es lo mismo que un arreglo
+Arrays es una clase, mientras que int[], String[], etc., son arreglos.
+
+
+¿Como ordenar un arreglo en java?
+importando la libreria de Arrays y aplicando metodo .sort()
+import java.util.Arrays;
+
+int[] numeros = {5, 2, 9, 1, 3};
+Arrays.sort(numeros);
+System.out.println(Arrays.toString(numeros));
+[1, 2, 3, 5, 9]
+
+
+
+¿Que es varargs?
+permite que un metodo reciba un numero variable de argumentos, sin saber cuantos seran al momento de programar
+sintaxis:
+tipo... nombre
+ejemplo:
+
+ public static void imprimir(int... numeros) {
+    for (int n : numeros) {
+        System.out.println(n);
+    }
+}
+
+imprimir(1);
+imprimir(1, 2, 3);
+imprimir(); // válido
+
+
+
+
+
+¿Que es StringTokenizer?
+En Java, StringTokenizer es una clase del paquete java.util que sirve para dividir (tokenizar) una cadena
+de texto en partes más pequeñas, llamadas tokens, usando uno o varios delimitadores.
+
+ ¿Qué hace StringTokenizer?
+Toma un String y lo separa según:
+Espacios (por defecto)
+Comas, puntos, símbolos
+O cualquier delimitador que se defina.
+
+ ejemplo:
+import java.util.StringTokenizer;
+String texto = "Hola mundo Java";
+StringTokenizer st = new StringTokenizer(texto);
+
+while (st.hasMoreTokens()) {
+    System.out.println(st.nextToken());
+}
+
+resultado: 
+Hola
+mundo
+Java
+
+clase legacy, mejor usar Scanner() o split()
+
+¿Que es SubString()?
+En Java, substring() es un método de la clase String que sirve para obtener una parte (subcadena) de un 
+texto original.
+
+String sub = texto.substring(inicio, fin);
+
+ejemplo:
+String texto = "Hola Mundo";
+
+String a = texto.substring(0, 4); // "Hola"
+String b = texto.substring(5);    // "Mundo"
+
+resultado:
+H  o  l  a     M  u  n  d  o
+0  1  2  3  4  5  6  7  8  9
+
+
+Que es toCharArray()?
+En Java, toCharArray() es un método de la clase String que sirve para convertir un String en un arreglo de caracteres (char[]).
+Permite:
+ Recorrer cada carácter individualmente
+ Modificar caracteres (usando el arreglo)
+ Analizar texto letra por letra
+sintaxis:
+char[] caracteres = texto.toCharArray();
+
+ejemplo basico:
+String texto = "Java";
+char[] letras = texto.toCharArray();
+
+for (char c : letras) {
+    System.out.println(c);
+}
+salida: 
+J
+a
+v
+a
+
+ejemplo practico para inverti un String:
+
+String texto = "hola";
+char[] chars = texto.toCharArray();
+
+for(int i < chars.length; i--){
+  System.out.println(chars[i]);
+}
+
+salida:
+aloH
+
+| Método          | Uso                              |
+| --------------- | -------------------------------- |
+| `toCharArray()` | Procesar todo el texto           |
+| `charAt(i)`     | Acceder a un carácter específico |
+
+
+
+
+¿Que es Split()?
+
+En Java, split() es un método de la clase String que sirve para dividir una cadena de texto en varias partes, usando un separador (delimitador), y devuelve un arreglo de String.
+📌 ¿Para qué sirve split()?
+
+Para:
+Separar texto por espacios, comas, símbolos, etc.
+Procesar datos como CSV
+Reemplazar a StringTokenizer
+FORMA BASICA:
+ String[] partes = texto.split(delimitador);
+
+CON LIMITE:
+  String[] partes = texto.split(delimitador, limite);
+
+ EJEMPLO BASICO:
+
+String texto = "Hola mundo Java";
+String[] palabras = texto.split(" ");
+
+
+USANDO COMA COMO SEPARADOR:
+  String datos = "Juan,Pedro,Ana";
+String[] nombres = datos.split(",");
+
+
+
+
+
+
+
+Que es trim()?
+
+trim es un metodo de la clase String que sirve para eliminar los espacios en blanco al inicio y al final de una cadena.
+trim elimina:
+  Espacios " "
+  Tabulaciones \t
+  Saltos de línea \n, \r
+
+
+
+¡Que es polimorfismo?
+Es un principio de la programacion orientada objetos (POO) que permite que un mismo metodo o referencia se comporte de diferentes formas del objeto real que se esta usando.
+Polimorfismo = "muchas formas".
+Una referencia de tipo padre puede apuntar a objetos de clases hijas, y el método que se ejecuta depende del objeto, no del tipo de la referencia.
+Mismo metodo diferente comportamiento.
+ejemplo:
+
+class Animal {
+    void sonido() {
+        System.out.println("El animal hace un sonido");
+    }
+}
+
+class Perro extends Animal {
+    @Override
+    void sonido() {
+        System.out.println("El perro ladra");
+    }
+}
+
+class Gato extends Animal {
+    @Override
+    void sonido() {
+        System.out.println("El gato maúlla");
+    }
+}
+
+Animal a1 = new Perro();
+Animal a2 = new Gato();
+
+a1.sonido(); // El perro ladra
+a2.sonido(); // El gato maúlla
+
+
+
+
+¿Que es la abstraccion?
+
+Es un principio de POO que consiste en ocultar los detalles de implementacion y mostrar solo lo esencial del objeto.
+Que hace el objeto, no como lo hace.
+
+La abstracción permite:
+
+Reducir complejidad
+Trabajar con ideas generales
+Facilitar cambios sin afectar el resto del código
+
+Ejemplo sencillo (vida real)
+
+Piensa en un control remoto:
+Tú presionas “encender”
+No necesitas saber cómo funciona internamente
+Eso es abstracción.
+
+
+que es interfaz? 
+una interfaz (interface) es un contrato que define qué métodos debe tener una clase, pero no cómo se implementan.
+La interfaz dice qué puede hacer un objeto, no cómo lo hace.
+
+
+¿Cual es la diferencia entre una clase abstracta y una interfaz? 
+la diferencia entre una clase abstracta y una interfaz está en qué pueden contener y cómo se usan.
+
+🔹 Clase abstracta
+Una clase abstracta:
+Puede tener atributos (estado)
+Puede tener métodos abstractos y métodos con implementación
+No se puede instanciar
+Una clase solo puede extender UNA clase abstracta
+
+abstract class Animal {
+    String nombre;
+
+    abstract void sonido();
+
+    void dormir() {
+        System.out.println("Durmiendo...");
+    }
+}
+
+🔹 Interfaz
+Una interfaz:
+Define un contrato
+No tiene estado (solo constantes)
+Los métodos son abstractos por defecto
+Puede tener métodos default y static
+Una clase puede implementar VARIAS interfaces
+
+interface Animal {
+    void sonido();
+}
+
+
+
+¿Se puede crear un objetos de una interfaz?
+No, no se puede crear un objeto directamente de una interfaz en Java.
+
+¿Por qué no se puede?
+Porque una interfaz no tiene implementación completa, solo define qué métodos deben existir, no cómo funcionan.
+
+
+¿Que es la herencia multiple?
+La herencia múltiple es un concepto de la Programación Orientada a Objetos (POO) que permite que una clase herede de más de una clase padre al mismo tiempo.
+
+
+java soporta herencia multiple?
+Java SÍ soporta herencia múltiple mediante interfaces.
+Java NO soporta herencia múltiple de clases.
+Java solo permite una clase padre.
+
+
+
+que es la palabra clave superior?
+En Java, la palabra clave super se usa para referirse a la clase padre (superclase) desde una clase hija.
+
+Llamar al constructor de la clase padre
+👉 Sirve para acceder a métodos, atributos y constructores de la clase que se hereda.
+
+
+
+que es la palabra this?
+En Java, la palabra clave this se usa para referirse al objeto actual, es decir, a la instancia de la clase que está ejecutando el código.
+
+Diferenciar atributos de parámetros
+Cuando un atributo y un parámetro tienen el mismo nombre.
+
+class Persona {
+    String nombre;
+
+    Persona(String nombre) {
+        this.nombre = nombre; // atributo = parámetro
+    }
+}
+
+
+¿Que es el encadenamiento de constructores?
+El encadenamiento de constructores en Java es una técnica que permite que un constructor llame a otro constructor, ya sea de la misma clase o de la clase 
+padre, para reutilizar código y evitar duplicación.
+
+
+¿Que es el ocultamiento de metodos (method hiding)?
+En Java, el ocultamiento de métodos (method hiding) ocurre cuando una clase hija define un método static con el mismo nombre y firma que un método static
+ de la clase padre.
+⚠️ No es sobrescritura (override), es ocultamiento.
+
+
+¿Que es la relacion: "is-a" y "has -a"?
+🔹 Relación IS-A (es un)
+Indica herencia: una clase es un tipo de otra.
+👉 Se usa con extends (clases) o implements (interfaces).
+
+
+¡Que es una clase anidada(nested class)?
+En Java, una clase anidada (nested class) es una clase definida dentro de otra clase.
+Se usa para organizar mejor el código, encapsular lógica y mejorar la legibilidad.
+class Externa {
+    class Interna {
+        void mensaje() {
+            System.out.println("Hola");
+        }
+    }
+}
+
+
+¿Que es una clase interna (inner class)?
+En Java, una clase interna (inner class) es una clase anidada no estática que se define dentro de otra clase y está asociada a una instancia de la clase externa.
+🧠 Idea clave
+
+Una inner class necesita un objeto de la clase externa para existir.
+ejemplo basico: class Externa {
+    int x = 10;
+
+    class Interna {
+        void mostrar() {
+            System.out.println(x); // acceso directo
+        }
+    }
+}
+
+
+
+
+
+¿Que es una clase anidada estatica?
+En Java, una clase anidada estática (static nested class) es una clase definida dentro de otra clase, marcada con static, que no depende de una instancia de la clase
+externa.
+🧠 Idea clave
+Es una clase dentro de otra, pero no necesita un objeto de la clase externa para existir.
+
+
+¿Porque el metodo main es estatico?
+En Java, el método main es estático porque es el punto de entrada del programa y la JVM (Java Virtual Machine) necesita poder ejecutarlo 
+sin crear primero un objeto de la clase que lo contiene.
+ejemplo:
+  Aqui se crea un un objeto de la clase para poder ejecutarlo
+public class Ejemplo {
+    public Ejemplo() {
+        System.out.println("Constructor llamado");
+    }
+
+    //Como es static, puede llamarlo directamente sin crear un objeto de esa clase
+    public static void main(String[] args) {
+        System.out.println("Hola desde main");
+    }
+}
+
+
+¿Que es static en java?
+En Java, la palabra clave static se utiliza para indicar que un miembro (variable, método, bloque o clase interna) pertenece a la clase y no a una instancia específica de ella.
+
+Esto significa que:
+No necesitas crear un objeto para acceder a un miembro static.
+Todos los objetos de la clase comparten el mismo valor de una variable static.
+Los métodos static solo pueden acceder directamente a otros miembros static de la clase.
+1. Variables static
+Se crean una sola vez en memoria, sin importar cuántos objetos se creen.
+Útiles para contadores, constantes o datos compartidos.
+
+public class Ejemplo {
+    static int contador = 0; // Variable compartida
+
+    public Ejemplo() {
+        contador++;
+    }
+
+    public static void main(String[] args) {
+        new Ejemplo();
+        new Ejemplo();
+        System.out.println("Objetos creados: " + contador); // Imprime 2
+    }
+}
+ Métodos static
+Se pueden llamar sin crear un objeto.
+No pueden usar variables de instancia directamente (porque no dependen de un objeto).
+
+public class Utilidades {
+    public static int sumar(int a, int b) {
+        return a + b;
+    }
+
+    public static void main(String[] args) {
+        int resultado = Utilidades.sumar(5, 3); // Llamada directa
+        System.out.println(resultado); // 8
+    }
+}
+
+. Bloques static
+Se ejecutan una sola vez cuando la clase se carga en memoria.
+Útiles para inicializar variables estáticas complejas.
+Java
+
+Copiar código
+public class Configuracion {
+    static String appName;
+
+    static {
+        appName = "MiAplicacion";
+        System.out.println("Configuración cargada");
+    }
+
+    public static void main(String[] args) {
+        System.out.println(appName);
+    }
+}
+4. Clases internas static
+Una clase interna static no necesita una instancia de la clase externa para ser usada.
+
+public class Externa {
+    static class Interna {
+        void mostrar() {
+            System.out.println("Clase interna estática");
+        }
+    }
+
+    public static void main(String[] args) {
+        Externa.Interna obj = new Externa.Interna();
+        obj.mostrar();
+    }
+}
+✅ En resumen:
+static en Java significa pertenencia a la clase en lugar de a un objeto. Es útil para métodos utilitarios, constantes, contadores y datos compartidos.
+
+
+
+¿Que es final en java?
+
+final en java convierte una variable en una constante, eso significa que una vez declarado cuando vale la variable, su valor nose puede cambiar. 
+¿Cual es la diferencia entre final finally y y finalize?
+
+
+¿Que son los modificadores de acceso?
+ En Java, los modificadores de acceso son palabras clave que determinan el nivel de visibilidad o alcance de clases, métodos, atributos y constructores dentro de un programa.
+ Su objetivo principal es proteger los datos y controlar desde dónde se puede acceder a cada elemento, aplicando el principio de encapsulamiento en la Programación Orientada a Objetos.
+
+
+¿Cual es la diferencia entre public private y protected?
+  La diferencia entre ellos es el tipo de acceso que otorgan cadauno de ellos:
+  MODIFICADORES		NIVEL DE ACCESO		ACCESIBLE DESDE
+  public		publico			cualquier clase sin importar el paquete
+  protected		protegido		La misma clase, clases del mismo paquete.
+  private		privado			solo dentro de la misma clase.
+
+ejemplo:
+ package ejemplo;
+
+public class Persona {
+    public String nombre;       // Accesible desde cualquier parte
+    protected int edad;         // Accesible en el mismo paquete y subclases
+    String ciudad;              // Acceso por defecto (package-private)
+    private String dni;         // Solo accesible dentro de esta clase
+
+    public Persona(String nombre, int edad, String ciudad, String dni) {
+        this.nombre = nombre;
+        this.edad = edad;
+        this.ciudad = ciudad;
+        this.dni = dni;
+    }
+
+    // Método público
+    public void mostrarInfo() {
+        System.out.println("Nombre: " + nombre);
+        System.out.println("Edad: " + edad);
+        System.out.println("Ciudad: " + ciudad);
+        System.out.println("DNI: " + dni);
+    }
+}
+
+
+Tabla visual de accesibilidad
+Modificador	Misma clase	Mismo paquete	Subclases (otro paquete)	Otras clases
+public	✅	✅	✅	✅
+protected	✅	✅	✅	❌
+(default)	✅	✅	❌	❌
+private	✅	❌	❌	❌
+
+
+
+¿Que es el casteo de tipos(type casting)?
+En Java, el casteo de tipos (type casting) es el proceso de convertir un valor de un tipo de dato a otro.
+Esto es útil cuando necesitas que una variable de un tipo pueda ser tratada como otro tipo compatible,
+ya sea para realizar operaciones, almacenar valores o interactuar con APIs que esperan un tipo específico.
+
+1. Widening Casting (Conversión implícita o ampliación)
+   Conversión automática de un tipo más pequeño a uno más grande en la jerarquía de tipos.
+   No hay pérdida de datos.
+   Ejemplo: int → long → float → double.
+
+public class WideningExample {
+    public static void main(String[] args) {
+        int num = 42;
+        double decimal = num; // Conversión implícita
+        System.out.println(decimal); // 42.0
+    }
+}
+
+Ejemplo de Conversion implicita:
+ public class WideningExample {
+    public static void main(String[] args) {
+        int num = 42;
+        double decimal = num; // Conversión implícita
+        System.out.println(decimal); // 42.0
+    }
+}
+
+2. Narrowing Casting (Conversión explícita o reducción)
+   Conversión manual de un tipo más grande a uno más pequeño.
+   Puede haber pérdida de datos o precisión.
+   Se usa el operador de casteo (tipo).
+
+    public class NarrowingExample {
+    public static void main(String[] args) {
+        double decimal = 42.99;
+        int num = (int) decimal; // Conversión explícita
+        System.out.println(num); // 42 (se trunca la parte decimal)
+    }
+}
+
+
+
+
+
+
+¿Que es el casteo implicito y explicito?
+En Java, el casteo (o casting) es el proceso de convertir un valor de un tipo de dato a otro.
+Existen dos tipos principales: implícito y explícito.
+
+Casteo implícito (Widening Casting)
+ También llamado conversión automática.
+ Lo realiza Java automáticamente cuando se convierte un tipo más pequeño a uno más grande en la jerarquía de tipos numéricos.
+ No hay pérdida de información (en la mayoría de los casos).
+ Ejemplo típico: de int a double.
+
+public class CasteoImplicito {
+    public static void main(String[] args) {
+        int numEntero = 42;
+        double numDecimal = numEntero; // Conversión automática (int → double)
+        
+        System.out.println("Entero: " + numEntero);
+        System.out.println("Decimal: " + numDecimal);
+    }
+}
+
+salida:
+ Entero: 42
+Decimal: 42.0
+
+Casteo explícito (Narrowing Casting)
+También llamado conversión manual.
+Se usa cuando se convierte un tipo más grande a uno más pequeño.
+Puede haber pérdida de información o precisión.
+Se indica poniendo el tipo entre paréntesis antes del valor.
+ejemplo:
+ public class CasteoExplicito {
+    public static void main(String[] args) {
+        double numDecimal = 42.99;
+        int numEntero = (int) numDecimal; // Conversión manual (double → int)
+        
+        System.out.println("Decimal original: " + numDecimal);
+        System.out.println("Entero convertido: " + numEntero);
+    }
+}
+
+
+
+
+¿Que son las palabras clave (keywords) en java?
+
+Las keywords son palabras reservadas de java y por lo tanto estas no se
+pueden usar como identificadores de variables, metodos o nombres de clases
+ya que el lenguaje marcaria error por uso erroneo de nombres de variable
+
+¿Que es un paquete(package)?
+es una caja o conjunto de herramientas que se agregan al uso del programa
+
+¿Para que se utiliza import?
+para importar los diferentes paquetes de java
+
+
+
+¿Que son las convenciones de nombres en java?
+ son un conjunto de reglas que los programadores deben seguir al nombrar variables
+ metodos, clases, paquetes, constantes y otros elementos del codigo. estas convenciones 
+ayudan a mantenerel codigo organizado, comprensible y sin repetidos.
+
+
+
+¿Que es la programacion orientadaa objetos(OOP)?
+La Programación Orientada a Objetos (OOP) en Java es un paradigma de programación que organiza el código en objetos, los cuales combinan datos (atributos) y comportamientos (métodos) en una sola unidad.
+Este enfoque facilita la modularidad, reutilización y mantenibilidad del software.
+
+¿Cuales son lo cuatro pilares de (OOP)?
+Encapsulación: 
+Agrupar datos y comportamientos dentro de una clase y controlar
+el acceso a estos a través de modificadores de acceso. 
+Ejemplo: En una clase CuentaBancaria, los atributos como el saldo y el número de
+cuenta pueden ser privados para evitar acceso directo, y se proporciona acceso a
+ellos mediante métodos públicos como depositar y retirar. 
+
+Abstracción: 
+Simplificar un sistema complejo mostrando solo los detalles 
+esenciales y ocultando los no relevantes. Ejemplo: Una interfaz Vehiculo 
+puede tener métodos abstractos como acelerar y frenar, sin entrar en los detalles
+de implementación. Clases concretas como Auto o Moto implementan estos métodos
+según sus necesidades específicas. 
+
+Herencia: 
+Permitir a una nueva clase heredar propiedades y métodos de una clase 
+existente. Ejemplo: La herencia permite crear una nueva clase basada en una clase
+existente. La nueva clase (subclase) hereda atributos y métodos de la clase 
+existente (superclase), lo que facilita la reutilización de código y la creación 
+de jerarquías. 
+
+Polimorfismo: 
+Permitir que una clase tenga múltiples métodos de acceso a los 
+atributos de otra clase. Ejemplo: En Java, esto se logra mediante clases 
+abstractas e interfaces. 
+Estos principios son fundamentales para la organización, reutilización y seguridad del código en Java
+
+
+
+¿Que es la encapsulacion?
+ Es la agrupacion de datos y comportamientos dentro de una clase y controlarlos el
+acceso a estos mediante controladores de acceso.
+
+¿Que es la herencia?
+ la herencia permite usar/heredar las propiedades y metodos de otra clase 
+
+¿Que es java?
+Es un lenguale de programacion avanzado y multiplataforma.
+
+¿Porque es independiente de la plataforma?
+ Esta capacidad se logra gracias a la Máquina Virtual de Java (JVM) y al uso de bytecode.
+
+¿Que es jvm?
+La JVM (Java Virtual Machine o Máquina Virtual de Java) es el componente de la plataforma 
+Java encargado de ejecutar el código Java compilado (bytecode) en cualquier sistema operativo o hardware, sin necesidad de modificar el programa.
+
+¿Que JRE?
+El Java Runtime Environment (JRE) es un entorno de ejecución que permite que las aplicaciones
+escritas en el lenguaje de programación Java se ejecuten en cualquier sistema operativo sin necesidad de modificaciones
+
+¿Que es JDK?
+ El Java Development Kit (JDK) es un conjunto de herramientas de software diseñado para desarrolladores que trabajan 
+con el lenguaje de programación Java.
+
+
+
+¿Que son los tipos de datos de datos en java?
+En Java, los tipos de datos definen qué tipo de valores puede almacenar una variable y cuánto espacio en memoria ocupará.
+Tipos de datos primitivos
+Son los más básicos y están integrados en el lenguaje. No son objetos y almacenan directamente el valor.
+
+Tipo	Tamaño (bits)	Rango aproximado	Ejemplo
+byte	8	-128 a 127	byte edad = 25;
+short	16	-32,768 a 32,767	short año = 2024;
+int	32	-2,147,483,648 a 2,147,483,647	int contador = 1000;
+long	64	Muy grande	long poblacion = 7800000000L;
+float	32	Decimales (precisión simple)	float precio = 19.99f;
+double	64	Decimales (alta precisión)	double pi = 3.1415926535;
+char	16	Un carácter Unicode	char letra = 'A';
+boolean	1 (lógico)	true o false	boolean activo = true;
+
+2
+Tipos de datos no primitivos (o de referencia)
+Son objetos que almacenan referencias a datos en memoria, no el valor directamente.
+Incluyen:
+
+Clases (String, Integer, Scanner, etc.)
+Arreglos (int[], String[])
+Interfaces
+Objetos creados por el programador
+Ejemplo:
+
+
+String nombre = "Juan";
+int[] numeros = {1, 2, 3};
+✅ Diferencias clave:
+
+Primitivos → más rápidos, ocupan menos memoria, no tienen métodos.
+No primitivos → más flexibles, pueden ser null, tienen métodos y propiedades.
+
+
+
+
+¿Que es una variable?
+En Java, una variable es un espacio de memoria con un nombre que se utiliza para
+almacenar un valor que puede cambiar durante la ejecución del programa.
+
+¿Que son los identificadores en java?
+ son nombres que el programa asigna a variables, constantes, clases, metodos,
+ paquetes, etc de un programa.
+ estos nombres permiten al programador referirise a elementos especificos desde
+cualquier lugar del programa.
+
+¿Que es una clase?
+En Java, una clase es una plantilla o modelo que define la estructura (atributos o variables)
+y el comportamiento (métodos o funciones) de los objetos que se crean a partir de ella.
+
+¿Que es un objeto?
+ es una instancia de una clase, los
+
+
+¿Que es un constructor?
+ Son metodos especiales en java para inicializar objetos recien creados,
+estos tienen el mismo nombre
+que la clase y no tienen un tipo de retorno, nisiquiera (void), su proposito principal
+es asignar valores iniciales a las variables de instancia de un objeto y opcionalmente
+establecer propiedades especificas.
+
+Tipos de constructores?
+constructor perdeterminando y constructor parametrizado
+
+¿Que es un metodo?
+Un metodo es un bloque de codigo que realiza tarea especifica y puede ser reutilizado en diferentes
+partesde un programa, los metodos son fundamentales en la programacion
+orientada a objetos, ya que permite organizar y estructurar el codigo de manera eficiente.
+
+
+¿Que es la sobrecarga de metodos(method overloading)?
+es una caracteristica que permite definir varios metodos con el mismo 
+nombre de una misma clase pero con diferentes listas de parametros,
+ya sea en numero tipo o el orden de los mismos.
+
+Reglas clave de la sobrecarga
+Mismo nombre de método.
+Parámetros diferentes:
+Diferente número de parámetros.
+Diferente tipo de parámetros.
+Diferente orden de parámetros.
+El tipo de retorno NO es suficiente para diferenciar métodos.
+Puede coexistir con modificadores de acceso y throws distintos.
+ejemplo:
+
+public class Calculadora {
+
+    // Suma de dos enteros
+    public int sumar(int a, int b) {
+        return a + b;
+    }
+
+    // Suma de tres enteros
+    public int sumar(int a, int b, int c) {
+        return a + b + c;
+    }
+
+    // Suma de dos números decimales
+    public double sumar(double a, double b) {
+        return a + b;
+    }
+
+    public static void main(String[] args) {
+        Calculadora calc = new Calculadora();
+
+        System.out.println(calc.sumar(5, 3));        // Llama a sumar(int, int)
+        System.out.println(calc.sumar(5, 3, 2));     // Llama a sumar(int, int, int)
+        System.out.println(calc.sumar(5.5, 3.2));    // Llama a sumar(double, double)
+    }
+}
+
+
+
+
+ 
+¿Que es la sobreescritura de metodos(method overriding)?
+ La sobrescritura de métodos (method overriding) en Java es un mecanismo que
+ permite a una clase hija (subclase) proporcionar una implementación diferente de
+ un método que ya está definido en su clase padre (superclase).
+ Se utiliza principalmente en herencia para modificar o especializar el
+ comportamiento heredado.
+
+¿Cual es la diferencia entre overloading y overrriding?
+la principal diferencia entre Overloading y Overrriding es que Overloading se refiere
+a la definicion de varias funciones con el mismo nombre de diferentes parametros 
+en una misma clase, mientras que Overriding es la redefinicion de una
+funcion en una subclase que ya existe en la clase baja.
+
+
+¿Que es metodo main()?
+El metodo main es el punto de entrada de cualquier aplicacion que se ejecute de 
+forma independiente.
+es el lugar donde la maquina virtual de java (JVM) comienzala ejecucion del
+programa.
+
+
+
+
+
+
+
+
+ 
