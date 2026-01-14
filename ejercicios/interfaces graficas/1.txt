@@ -1,0 +1,18 @@
+import javax.swing.*;
+
+public class Formulario : extends JFrame{
+ private JLabel label1;
+
+ public Formulario(){
+
+   setLayout(nul)//indicamos a traves de coordenadas donde queremos colocar el boton
+   label1 = new JLabel("La geekipedia dejared");
+ //se colocan coordenadas (x) y (y) y (ancho) y (alto)  
+   label1.setBounds(10, 20, 200,300);
+   add(label1);//indica que todo lo que escribimos se agrega a label1
+ }
+ public static void main(String[] args){
+  Formulario formulario1 = new Formulario();
+  formulario1.setBounds(0,0,400,300);gg
+}
+}

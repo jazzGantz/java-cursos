@@ -1,0 +1,19 @@
+import java.util.Scanner;
+public class cadenaCarac{
+ public static void main(String[] args){
+  String nombre1 = "";
+  String nombre2 = "";
+  Scanner sc = new Scanner(System.in);
+  System.out.println("Programa para validar si dos nombres son iguales");
+  System.out.println("Coloca el primer nombre");
+  nombre1 = nextLine();
+  System.out.println("Coloca el segundo nombre");
+  nombre2 = sc.nextLine();
+  if(nombre1.equalsIgnoreCase(nombre2)){
+   System.out.println("iguales");
+  }else{ 
+     System.out.println("No son iguales");
+   }
+ }
+
+}

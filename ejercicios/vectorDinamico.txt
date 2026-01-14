@@ -1,0 +1,11 @@
+public class vectorDinamico{
+ public static void main(String[] args){
+  int vectorArray1[] = new int[10]; //deley se coloca la longitud
+
+  System.out.println("Programa de vector dinamico");
+  
+  for(i = 0; i < vectorArray1.length; i++){
+   vectorArray[i] i+10;
+  }  
+ }
+}

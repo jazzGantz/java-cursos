@@ -1,0 +1,14 @@
+public class arreInverso{
+ public static void main(String[] args){
+  //crea un arreglo y imprimelo inversamente
+  incremento = 1;
+  int arreglo[] = new int[5];
+  for(int 1= 0, 1<arreglo.length; i++){
+  arreglo[i] = incremento;
+  incremento ++;
+ System.out.println(arreglo[i]); 
+
+}
+  
+ }
+}

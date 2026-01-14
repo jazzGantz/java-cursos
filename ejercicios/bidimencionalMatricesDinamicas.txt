@@ -1,0 +1,25 @@
+import java.util.Scanner;
+public class bidimencionalMatricesDinamicas{
+ public static void main(String[] args){
+
+  int matbidimenDinamic[][] = new int[][];
+  int incremento = 1;
+  int filas = 0;
+  int columnas = 0;
+  Scanner sc = new Scanner(System.in);
+  System.out.println("Arreglo bidimencional");
+  System.out.println("Ingresa el numero de filas que deseas obtener");
+  filas = sc.nextInt();
+  System.out.println("Ingresa el numero de columnas que deseas obtener");
+  columnas = sc.nextInt();
+  for(j = 0; j < filas; j++){
+      for(i = 0; i < columnas; i++){ 
+        matbidimenDinamic[j][i] = incremento;
+    	incremento++;
+   	System.out.println("["+ matbidimenDinamic[j][i] + "]");
+   }
+  }
+  
+  
+ }
+}

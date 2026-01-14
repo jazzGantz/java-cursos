@@ -1,0 +1,25 @@
+import java.util.Scanner;
+public class viajes{
+ public static void main(String[] args){
+  //desarrolla un programa donde el el usuario coloque los minutos de cada viaje y al presionar cero el programa termina y da como resultado ya seaen minutos 
+  // y si suman mas de una hora muestra hora y minutos
+  
+
+  int sumaTotal = 0;
+  int viaje = 0;
+  Scanner sc = new Scanner(System.in);
+  int incremento
+  System.out.println("Ingresa los minutos de cada viaje");
+  do { 
+    System.out.printl("Ingresa los minutos del" + incremento + viaje.");
+    viaje = sc.nextInt();
+  }while(viaje  <= 0);
+
+   if(sumaTotal < 60){
+     System.out.println("la suma del tiempo total detus viajes fue de: "+ sumaTotal + "Minutos");
+   }else if(sumaTotal > 60){
+      System.out.println("La hora total fue de: "+ sumaTotal/60 + ":"+ (sumaTotal % 60));
+    }
+
+ }
+}

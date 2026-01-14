@@ -1,0 +1,37 @@
+public class exerciseslogic{
+ public static void main(String[] args){
+ 
+  for(int i =0; i<11; i++){
+   System.out.println(i); 
+  }
+
+  int num = 200
+  while(num != 0){ 
+   System.out.println("costo....");
+   System.out.println("costo....");
+   num-=200;
+  }
+
+     int num1 = 100;
+  do{
+     System.out.println("costo....");
+     num-=2;
+     System.out.println("costo...."+ num);
+   }while(num1 != 0);
+//----------------------------------------------------------
+//0,99,2,98,3,97,4,96,5,95 etc
+  String num2 = 1;
+  String num3 = 99;
+  while(num3 != 0 && num2 != 99){  
+   System.out.print(num2 +""+ num3);
+   num2+=1;
+   num3-=1;
+   System.out.print(num2 +""+ num3);
+  }
+
+
+
+
+
+ }
+}

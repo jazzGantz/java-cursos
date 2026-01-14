@@ -1,0 +1,600 @@
+que es String.format();
+es un formato de cadena aplicada
+
+que es charAt();
+ es un metodo de clase String que permite obtener un caracter de una posicion especifica dentre de un 
+texto
+
+cual es la diferencia entre length y lenght();
+length: se usa para obtener la longitud de un arreglo
+lenght: se usa para obtener lalongitud de textos
+
+que es un metodo join()
+
+que es el collection framework
+  es un conjunto de interfaces, clases e implementaciones en Java diseñado para
+ almacenar, manipular y procesar grupos de objetos de forma eficiente y estandarizada.
+list
+
+que es list:  es una coleccion ordenada de elementos que permite acceder, 
+            modifica, insercion, eliminacion y busqueda de metodos por medio de indice
+
+
+
+cual es la diferencia entre arrayList y linkedList:
+Arraylist: 
+arrray list es mas rapido para obtener informacion
+
+linkelist es mas lento para obtener la informacion. 
+
+
+que es set
+ es una estructura de datos no ordenada que no permite datos duplicados y puede tener
+datos nullos.
+Usa Set cuando:
+
+Necesites evitar duplicados
+
+Quieras saber si un elemento ya existe
+
+No te importe el índice (Set no tiene get(i))
+
+-------------
+que es HashSet
+En Java, HashSet es una implementación de la interfaz Set que almacena elementos únicos usando una tabla hash.
+
+
+que es LinkedHashSet
+En Java, LinkedHashSet es una implementación de la interfaz Set que combina las ventajas de HashSet y LinkedList.
+
+👉 En pocas palabras:
+LinkedHashSet guarda elementos únicos y mantiene el orden en que fueron insertados.
+
+
+
+
+Que es TreeSET
+En Java, TreeSet es una implementación de la interfaz Set que almacena elementos únicos y siempre ordenados.
+
+👉 En pocas palabras:
+TreeSet guarda datos sin duplicados y los mantiene ordenados automáticamente.
+1. Características principales de TreeSet
+
+❌ No permite duplicados
+
+✔️ Mantiene los elementos ordenados
+
+Orden natural (Comparable)
+
+O un orden personalizado (Comparator)
+
+🐢 Más lento que HashSet y LinkedHashSet
+
+❌ No permite null
+
+Implementado con un árbol rojo-negro
+
+almacena elementos únicos y siempre ordenados.
+
+
+
+
+
+
+//--------------------
+Que es una clase anonima
+En Java, una clase anónima es una clase sin nombre que se define y se instancia en el mismo momento, normalmente para sobrescribir métodos de una clase o interfaz de forma rápida.
+
+
+4. Características importantes
+
+❌ No tiene nombre
+
+❌ No puede tener constructores
+
+✔️ Puede acceder a variables final o efectivamente finales
+
+✔️ Se crea y usa una sola vez
+
+❌ No se puede reutilizar
+///------------------------------------------------------------------
+
+Que es la composicion:
+Una clase usa otra clase como atributo.)
+
+ En Java, la composición es un principio de diseño orientado a objetos en el que una clase contiene objetos de otra clase para reutilizar
+ funcionalidad, en lugar de heredarla.
+👉 Se conoce como la relación “tiene-un” (has-a).
+
+composicion es que una clase use otra como atributo:
+class Motor {
+    void encender() {
+        System.out.println("Motor encendido");
+    }
+}
+
+class Auto {
+    private Motor motor;  // composición
+
+    public Auto() {
+        this.motor = new Motor();
+    }
+
+    void arrancar() {
+        motor.encender();
+    }
+}
+
+| Composición                    | Herencia           |
+| ------------------------------ | ------------------ |
+| **Tiene-un**                   | **Es-un**          |
+| Más flexible                   | Más rígida         |
+| Bajo acoplamiento              | Alto acoplamiento  |
+| Permite cambiar comportamiento | Difícil de cambiar |
+| Recomendada                    | Usar con cuidado   |
+
+
+que es la agregacion------------
+El objeto puede existir independientemente.
+
+ class Equipo {
+    private Jugador jugador;
+
+    public Equipo(Jugador jugador) {
+        this.jugador = jugador;
+    }
+}
+
+5. ¿Cuándo usar composición?
+
+Usa composición cuando:
+
+Quieras reutilizar código
+
+No exista una relación clara “es-un”
+
+Necesites flexibilidad
+
+Diseñes sistemas grandes
+
+
+
+que es la clonacion de objetos--------------
+la clonacion de objetos en java es el proceso de crear copia exacta de un objeto existente.
+lo que permite tenerdos instancias identicas en memoria al mismo tiempo.
+este mecanismo es util cuando se necesita manipular datos sin modificar el objeto general.
+
+que es el metodo clone();--------------------
+
+En Java, el método clone() sirve para crear una copia de un objeto existente.
+👉 Es una forma de duplicar objetos sin crear uno nuevo “desde cero”.
+Requisitos para usar clone()
+
+Para que funcione, la clase debe:
+Implementar Cloneable
+Sobrescribir el método clone()
+Llamar a super.clone()
+//////Ejemplo básico (clonado superficial)
+class Persona implements Cloneable {
+    String nombre;
+    int edad;
+
+    @Override
+    public Persona clone() {
+        try {
+            return (Persona) super.clone();
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError();
+        }
+    }
+}
+Persona p1 = new Persona();
+Persona p2 = p1.clone();
+
+
+
+
+Que es un String-------------------
+Es una cadena de caracteres letras o numeros 
+Un String es inmutable, lo que significa que no puede cambiar una vez creado.
+Métodos comunes de String
+length()
+toUpperCase()
+toLowerCase()
+substring()
+equals()
+contains()
+split()
+
+
+Cual es la diferencia entre String StringBuilder y StringBUffer-------------
+
+| Tipo          | Mutable | Thread-safe | Uso               |
+| ------------- | ------- | ----------- | ----------------- |
+| String        | ❌       | ✔️          | Texto fijo        |
+| StringBuilder | ✔️      | ❌           | Texto modificable |
+| StringBuffer  | ✔️      | ✔️          | Multihilo         |
+
+En Java, String, StringBuilder y StringBuffer sirven para manejar texto, pero no son iguales.
+La diferencia principal está en mutabilidad, rendimiento y seguridad en hilos (threads).
+La principal diferencia es que String en inmutable y StringBuilder y StringBuffer son mutables y StringBuffer
+es multihilo.
+
+Porque los String son inmutables en java-----------
+para evitar modificaciones  maliciosas, permite ahorro de memoria, codigo mas predecible y uso eficiente en los hash.
+
+Que es String Pool------------
+
+el String pool o (String constant pool) es una zona especial de memoria en java donde se almacenan Strings literales para reutilizarlos y ahorrar memoria.
+ejemplo:
+String a = "Hola";
+String b = "Hola";
+a y b apuntan al MISMO objeto en el String Pool.
+String Pool
+ └── "Hola"  ← a, b
+
+
+Cual es la diferencia entre Equals y == -------------------
+
+(Equals) compara el mismo contenido de la variable, y (==) compara la misma referencia de memoria que comparten
+ambas variables.
+ 
+String a = "Hola";
+String b = "Hola";
+String c = new String("Hola");
+
+System.out.println(a == b); // true (misma referencia)
+System.out.println(a == c); // false (distinta referencia)
+System.out.println(a.equals(c)); // true (mismo contenido)
+
+
+que es un arreglo----------------------------------
+
+
+
+que son los arreglos multidimencionales------------------
+un arreglo es una estructura de datos que sirve para almacenar varios valores del mismo tipo
+en una sola variable usando indices para acceder acada elemento.
+
+Es una colección de:
+
+Tamaño fijo
+
+Tipo de dato único
+
+Acceso por índice (empieza en 0)
+
+int[] numeros = {10, 20, 30, 40};
+
+Índice →  0   1   2   3
+Valor  → 10  20  30  40
+
+
+
+
+que es la excepcion ArrayIndexOutOFBoundExcepcion?------------
+
+La ArrayIndexOutOfBoundsException es una excepción en Java que ocurre cuando intentas acceder a
+ una posición de un arreglo que no existe.
+
+que es la clase arrays-----------------
+La clase Arrays en Java es una clase utilitaria del paquete java.util que proporciona métodos estáticos
+ para trabajar con arreglos de forma fácil y eficiente.
+
+⚠️ No es lo mismo que un arreglo
+Arrays es una clase, mientras que int[], String[], etc., son arreglos.
+
+
+
+como ordenar un arreglo en java?-----------------
+
+importando la libreria de Arrays y aplicando metodo .sort()
+import java.util.Arrays;
+
+int[] numeros = {5, 2, 9, 1, 3};
+Arrays.sort(numeros);
+
+System.out.println(Arrays.toString(numeros));
+
+[1, 2, 3, 5, 9]
+
+
+
+que es varargs-----------
+
+permite que un metodo reciba un numero variable de argumentos, sin saber cuantos seran al momento de programar
+sintaxis:
+tipo... nombre
+
+ejemplo:
+
+ public static void imprimir(int... numeros) {
+    for (int n : numeros) {
+        System.out.println(n);
+    }
+}
+
+imprimir(1);
+imprimir(1, 2, 3);
+imprimir(); // válido
+
+
+
+
+
+Que es StringTokenizer----------------------
+En Java, StringTokenizer es una clase del paquete java.util que sirve para dividir (tokenizar) una cadena
+de texto en partes más pequeñas, llamadas tokens, usando uno o varios delimitadores.
+
+.
+
+📦 ¿Qué hace StringTokenizer?
+
+Toma un String y lo separa según:
+
+Espacios (por defecto)
+
+Comas, puntos, símbolos
+
+O cualquier delimitador que se defina.
+
+ejemplo:
+import java.util.StringTokenizer;
+
+String texto = "Hola mundo Java";
+StringTokenizer st = new StringTokenizer(texto);
+
+while (st.hasMoreTokens()) {
+    System.out.println(st.nextToken());
+}
+
+resultado: 
+Hola
+mundo
+Java
+
+clase legacy, mejor usar Scanner() o split()
+
+Que es SubString()?----------------------------
+En Java, substring() es un método de la clase String que sirve para obtener una parte (subcadena) de un 
+texto original.
+
+String sub = texto.substring(inicio, fin);
+
+
+ejemplo:
+String texto = "Hola Mundo";
+
+String a = texto.substring(0, 4); // "Hola"
+String b = texto.substring(5);    // "Mundo"
+
+resultado:
+H  o  l  a     M  u  n  d  o
+0  1  2  3  4  5  6  7  8  9
+
+
+Que es toCharArray()-----------------------
+En Java, toCharArray() es un método de la clase String que sirve para convertir un String en un arreglo de caracteres (char[]).
+Permite:
+
+Recorrer cada carácter individualmente
+
+Modificar caracteres (usando el arreglo)
+
+Analizar texto letra por letra
+
+sintaxis:
+char[] caracteres = texto.toCharArray();
+
+ejemplo basico:
+String texto = "Java";
+char[] letras = texto.toCharArray();
+
+for (char c : letras) {
+    System.out.println(c);
+}
+salida: 
+J
+a
+v
+a
+
+ejemplo practico para inverti un String
+
+String texto = "hola";
+
+char[] chars = texto.toCharArray();
+
+for(int i < chars.length; i--){
+  System.out.println(chars[i]);
+}
+
+salida:
+aloH
+
+| Método          | Uso                              |
+| --------------- | -------------------------------- |
+| `toCharArray()` | Procesar todo el texto           |
+| `charAt(i)`     | Acceder a un carácter específico |
+
+
+
+
+que es Split()-------------------
+En Java, split() es un método de la clase String que sirve para dividir una cadena de texto en varias partes, usando un separador (delimitador), y devuelve un arreglo de String.
+
+📌 ¿Para qué sirve split()?
+
+Para:
+
+Separar texto por espacios, comas, símbolos, etc.
+
+Procesar datos como CSV
+
+Reemplazar a StringTokenizer
+
+FORMA BASICA:
+ String[] partes = texto.split(delimitador);
+
+CON LIMITE:
+  String[] partes = texto.split(delimitador, limite);
+
+ EJEMPLO BASICO:
+
+String texto = "Hola mundo Java";
+String[] palabras = texto.split(" ");
+
+
+USANDO COMA COMO SEPARADOR:
+  String datos = "Juan,Pedro,Ana";
+String[] nombres = datos.split(",");
+
+
+
+
+
+
+
+Que es trim()-------------------------
+
+
+
+Que es polimorfismo:  ----------------------------------------------------------------------------------
+
+
+
+que es la abstraccion:---------------------
+
+que es interfaz-----------------------
+
+Cual es la diferencia entre una clase abstracta y una interfzas---------------------------------------------------
+
+
+
+se puede crear un objetos de una iterfaz?-------------------
+
+
+que es la herencia multiple:--------------------------------------------------------------------------------------------------------------------
+
+
+
+java soporta herencia multiple?-------------
+
+
+que es la palabra clave superior----------------
+
+
+que es la palabra this-------------------
+
+
+que es el encadenamiento de constructores----------------------
+
+
+que es el ocultamiento de metodos (method hiding)----------------
+
+
+que es la relacion: "is-a" y "has-a"?-----------------------------------------
+
+
+que es una clase anidada(nested class)----------------------
+
+
+que es una clase interna (inner class)----------------------------------------------------------------------
+
+que es una clase anidada estatica-----------
+
+
+porque el metodo main es estatico--------------
+
+
+que es static en java-------------------
+
+
+que es final en java-------------
+
+
+cual es la diferencia entre final finally y y finalize----------------
+
+
+que son los modificadores de acceso-------------
+
+
+cual es la diferencia entre public private y protected
+
+que es el casteo de tipos(type casting)
+
+
+que es el casteo implicito y explicito
+
+que son las palabras clave (keywords) en java
+
+
+que es un paquete(package)?
+
+para que se utiliza import
+
+
+que son las convenciones de nombres en java
+
+que es la programacion orientadaa objetos(OOP)
+
+
+cuales son lo cuatro pilares de (OOP)
+
+
+que es la encapsulacion
+
+
+que es la herencia
+
+
+que es java
+
+porque es independiente de la plataforma
+
+
+que jvm
+
+
+que JRE
+
+que es JDK
+
+que son los tipos de datos de datos en java
+
+
+que es una variable
+
+
+que son los identificadores en java
+
+
+que es una clase
+
+
+que es un objeto
+
+
+que es un constructor
+
+
+tipos de cntructores
+
+
+que es un metodo
+
+
+que es la sobrecarga de metodos(method overloading)
+
+que es la sobreescritura de metodos(method overriding)
+
+cual es la diferencia entre overloading y overrriding?
+
+que es metodo main()
+
+
+
+
+
+
+ 

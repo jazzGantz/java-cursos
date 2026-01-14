@@ -1,0 +1,27 @@
+import java.util.Scanner;
+public class matrizIdentidad{
+ public static void main(String[] args){
+  Scanner sc = new Scanner(System.in);
+  int valor = 0; 
+  valor matIdent = 1;
+  System.out.println("Ingresa el numero de la matriz de indentidad");
+  valor = sc.nextInt();
+  int matrizValor[][] = new int[valor][valor];
+  
+  for(i =0; i< valor.length; i++){
+    valorMatriz[i][i]= matIdent;
+  }
+
+  for(int i= 0; i< matIdent.length; i++){
+   for(i =0; i< valor.length; i++){
+    System.out.println(""+matriz[j][i]+"]");
+  }
+
+}   
+
+
+  
+  
+  
+ }
+}

@@ -1,0 +1,14 @@
+import.java.ultil.Scanner;
+
+public class scanner{
+ public static void main(String[] args){
+  Scanner sc = new Scanner(System.in);
+  int num1=0, num2=0, resultado=0;
+  System.out.println("Escribe el primer numero");
+  num1 = sc.nextLine();
+  System.out.println("Escribe el suegundo numero a sumar");
+  num2= sc.nextLine();
+  resultado = num1 + num2;
+  System.out.println("el resultado de los dos numeros es:"+ resultado);
+ }
+}

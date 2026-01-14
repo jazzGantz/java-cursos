@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class threeNumber{
+ public static void main(String[] args){
+  int num1 = 0;
+  int num2 = 0;
+  int num3 = 0;
+  Scanner sc = new Scanner(System.in);
+   System.out.println("Programa para validar cual delos 3 numeros es mayor ");
+   System.out.println("Ingresa el primer numero");
+   num1 = sc.nextInt();
+   System.out.println("Ingresa el 2do numero");
+   num2 = sc.nextInt();
+   System.out.println("Ingresa el 3ro numero");
+   num3 = sc.nextInt();
+   if(num1 >= num2 && num1 >= num3){
+     System.out.println("el primero es mayor");
+   }
+    else if(num2 >=num1 && num2 >= num3){
+     System.out.println("num 3 mayor");
+     }
+        else if(num3 >=num1 && num3 >= num2){
+        System.out.println("num 3 mayor");
+    }
+
+   
+  }
+}

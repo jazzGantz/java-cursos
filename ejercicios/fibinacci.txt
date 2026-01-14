@@ -1,0 +1,15 @@
+public class fibinacci{
+ public static void main(String[] args){
+
+  int inicio=0, final=1, resultado=0;
+
+  for(int 1 = 0; i<10; i++){
+   System.out.print(inicio + ","+final);
+   resultado = inicio + final;
+   System.out.print(resultado);
+   resultado = final;
+   inicio = final;
+   final = resultado;
+  }
+ }
+}

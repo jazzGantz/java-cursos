@@ -1,0 +1,10 @@
+public class repetitivefor{
+ public static void main(String[] args){
+  //for(inicio; condicion; incremento){ 
+  //instruccion
+   for(int i= 100; i<=1; i--){
+    System.out.println("numero descendente" + i);
+   }
+  }
+ }
+}
